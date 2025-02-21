@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">*@
+</head>
+<body>
+    <div class="container-fluid bg-danger text-white text-left py-3 navbar-inner">
+        <h4>ALFEMO</h4>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @*<hr />*@
+    @*<footer>
+        <p>&copy; Copyright By ALFEMO BT - @DateTime.Now.Year</p>
+    </footer>*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
