@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MontajWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,9 @@ namespace MontajWeb.Controllers
 {
     public class PdfReadController : Controller
     {
-        // GET: PdfRead
         public ActionResult Index(string productid)
         {
-            return RedirectToAction("Index","Home",new { productid = productid });
+            return View(new ProductViewModel { ProductId = productid });
         }
     }
 }

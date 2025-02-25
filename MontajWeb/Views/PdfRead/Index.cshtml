@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Alfemo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model  MontajWeb.Models.ProductViewModel
+
+<div class="col-md-12 margin-top-10">
+    <div class="col-md-10">
+        <input type="text" id="txtMaterial" placeholder="Ürün Kodunu Giriniz" class="form-control input-full">
+        <a id="btnMaterial" class="btn btn-default submit-full">Ara</a>
+    </div>
+</div>
+
+<div class="col-sm-10 col-md-10 col-lg-10">
+    <div id="pdf-container">
+        <iframe id="pdf-iframe"></iframe>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var productID = '@Model.ProductId';
+            if (productID != null && productID != '') {
+                $("#txtMaterial").val(productID);
+                setTimeout(function () {
+                    $("#btnMaterial").trigger("click");
+                }, 100);
+            }
+
+            $("#btnMaterial").click(function () {
+                var url = 'https://montaj.alfemo.com.tr/dokumanlar/' + $("#txtMaterial").val() + '.pdf';
+                $('#pdf-iframe').attr('src', url);
+            });
+        });
+    </script>
+}
+
+
